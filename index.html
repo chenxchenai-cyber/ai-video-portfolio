@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>晨上辰AI映像 | 溫馨生命禮儀AI影片展示</title>
+    <title>晨上辰AI映像 | 溫馨生命禮儀AI影片專家</title>
     <style>
         :root {
             --bg-color: #FFFDF0; /* 溫馨鵝黃色 */
@@ -29,29 +29,30 @@
 
         .divider {
             text-align: center;
-            margin: 20px auto;
+            margin: 15px auto;
             color: var(--primary-color);
             font-size: 24px;
             letter-spacing: 5px;
         }
 
+        /* 頂部 Header 區 */
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px 30px 20px;
             background: linear-gradient(to bottom, #FFEFA6, var(--bg-color));
-            border-bottom: 2px dashed var(--primary-color);
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             color: var(--dark-gold);
-            letter-spacing: 4px;
-            margin-bottom: 10px;
+            letter-spacing: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
 
         header p {
             font-size: 1.1rem;
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
             opacity: 0.9;
         }
@@ -59,16 +60,69 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         .section-title {
             text-align: center;
             font-size: 1.8rem;
             color: var(--dark-gold);
-            margin-bottom: 40px;
+            margin: 40px 0 30px 0;
+            position: relative;
         }
 
+        /* ======= HERO 精選主打區塊樣式 ======= */
+        .hero-section {
+            background: #FFFFFF;
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 50px;
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-badge {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            padding: 4px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 1.6rem;
+            color: var(--dark-gold);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Hero 宣傳片直式外殼（置中放大縮小優化） */
+        .hero-video-wrapper {
+            width: 100%;
+            max-width: 360px; /* 控制直式影片在寬螢幕上的最大寬度 */
+            position: relative;
+            padding-top: 177.77%; /* 9:16 比例 */
+            background: linear-gradient(135deg, #6E5F42, #3A311D);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .hero-video-wrapper:hover {
+            transform: scale(1.02);
+        }
+
+        /* ======= 通用影片卡片與網格樣式 ======= */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -83,6 +137,8 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(74, 62, 38, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: block;
         }
 
         .video-card:hover {
@@ -91,21 +147,49 @@
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
         }
 
-        /* 針對 Shorts 優化的直式 9:16 播放器外殼 */
-        .video-container {
+        .video-cover-container {
             position: relative;
             width: 100%;
-            padding-top: 177.77%; 
-            background-color: #000;
+            padding-top: 177.77%; /* 9:16 比例 */
+            background: linear-gradient(135deg, #5A4E36, #2A2315);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .video-container iframe {
+        .play-button {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(254, 253, 240, 0.9);
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .play-button::after {
+            content: "🌸";
+            font-size: 28px;
+        }
+
+        .hero-video-wrapper:hover .play-button,
+        .video-card:hover .play-button {
+            background: var(--primary-color);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .hero-video-wrapper:hover .play-button::after,
+        .video-card:hover .play-button::after {
+            content: "▶";
+            color: #fff;
+            font-size: 24px;
+            margin-left: 6px;
         }
 
         .video-info {
@@ -125,6 +209,17 @@
             color: #7A6E55;
         }
 
+        .hint-text {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #FFEFA6;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* 聯絡區塊 */
         .contact-section {
             background-color: #FFFFFF;
             border: 2px solid var(--primary-color);
@@ -169,66 +264,85 @@
     </header>
 
     <div class="container">
-        <h2 class="section-title">AI 映像成品展示</h2>
+        
+        <div class="hero-section">
+            <div class="hero-badge">FEATURED</div>
+            <h2 class="hero-title">「晨上辰AI映像」官方商務宣傳片</h2>
+            
+            <a href="https://youtube.com/shorts/EfYB-InkHTA" target="_blank" class="hero-video-wrapper">
+                <div class="video-cover-container">
+                    <div class="play-button"></div>
+                    <div class="hint-text">點擊觀看官方宣傳片 (Shorts)</div>
+                </div>
+            </a>
+        </div>
+
+
+        <h2 class="section-title">AI 分類映像成品展示 (點擊播放)</h2>
         
         <div class="portfolio-grid">
             
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/ZY5lO4kwtKk" title="女性揮手" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <a href="https://youtube.com/shorts/ZY5lO4kwtKk" target="_blank" class="video-card">
+                <div class="video-cover-container">
+                    <div class="play-button"></div>
+                    <div class="hint-text">點擊前往 YouTube 觀看</div>
                 </div>
                 <div class="video-info">
                     <h3>女性揮手</h3>
                     <p>溫柔溫馨的動態呈現，展現告別時的輕聲致意。</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/JYcZCq9n87U" title="女性合掌" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <a href="https://youtube.com/shorts/JYcZCq9n87U" target="_blank" class="video-card">
+                <div class="video-cover-container">
+                    <div class="play-button"></div>
+                    <div class="hint-text">點擊前往 YouTube 觀看</div>
                 </div>
                 <div class="video-info">
                     <h3>女性合掌</h3>
                     <p>祥和虔誠的合掌姿態，帶有深厚的佛教祝福與祈願。</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/Cgf5sSoo_Ek" title="男性揮手" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <a href="https://youtube.com/shorts/Cgf5sSoo_Ek" target="_blank" class="video-card">
+                <div class="video-cover-container">
+                    <div class="play-button"></div>
+                    <div class="hint-text">點擊前往 YouTube 觀看</div>
                 </div>
                 <div class="video-info">
                     <h3>男性揮手</h3>
                     <p>自然肅穆的揮手致意，重現親人記憶中最溫暖的揮別。</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/Zh1s557TrTE" title="男性合掌" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <a href="https://youtube.com/shorts/Zh1s557TrTE" target="_blank" class="video-card">
+                <div class="video-cover-container">
+                    <div class="play-button"></div>
+                    <div class="hint-text">點擊前往 YouTube 觀看</div>
                 </div>
                 <div class="video-info">
                     <h3>男性合掌</h3>
                     <p>內斂沉穩的合掌意象，傳遞慈悲與福報的圓滿。</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/83fHgSwbqPs" title="寵物相關" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <a href="https://youtube.com/shorts/83fHgSwbqPs" target="_blank" class="video-card">
+                <div class="video-cover-container">
+                    <div class="play-button"></div>
+                    <div class="hint-text">點擊前往 YouTube 觀看</div>
                 </div>
                 <div class="video-info">
                     <h3>寵物生命禮儀相關</h3>
                     <p>專為毛孩設計的溫馨影像，撫慰痛失愛寵的守護者。</p>
                 </div>
-            </div>
+            </a>
 
         </div>
 
         <div class="contact-section">
             <h2>商務合作與技術洽詢</h2>
             <p>「晨上辰AI映像」專為現代葬儀、生命禮儀公司提供客製化的 AI 影片生成服務。<br>不論是尊長生前影像重建、追思會溫馨短片，或是各類動態素材開發，我們皆能提供高效、高畫質的專業解決方案。</p>
-            <a href="mailto:your-email@example.com" class="contact-btn">聯繫我們洽談合作</a>
+            <a href="mailto:chenxchenai@gmail.com" class="contact-btn">聯繫我們洽談合作</a>
         </div>
 
         <footer>
