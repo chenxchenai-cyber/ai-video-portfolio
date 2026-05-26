@@ -38,8 +38,9 @@
         /* 頂部 Header 區 */
         header {
             text-align: center;
-            padding: 50px 20px 30px 20px;
+            padding: 60px 20px 40px 20px;
             background: linear-gradient(to bottom, #FFEFA6, var(--bg-color));
+            border-bottom: 2px dashed var(--primary-color);
         }
 
         header h1 {
@@ -68,61 +69,9 @@
             font-size: 1.8rem;
             color: var(--dark-gold);
             margin: 40px 0 30px 0;
-            position: relative;
         }
 
-        /* ======= HERO 精選主打區塊樣式 ======= */
-        .hero-section {
-            background: #FFFFFF;
-            border: 2px solid var(--primary-color);
-            border-radius: 20px;
-            padding: 35px;
-            margin-bottom: 50px;
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.15);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-badge {
-            background-color: var(--primary-color);
-            color: #FFFFFF;
-            padding: 4px 18px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        .hero-title {
-            font-size: 1.6rem;
-            color: var(--dark-gold);
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        /* Hero 宣傳片直式外殼（置中放大縮小優化） */
-        .hero-video-wrapper {
-            width: 100%;
-            max-width: 360px; /* 控制直式影片在寬螢幕上的最大寬度 */
-            position: relative;
-            padding-top: 177.77%; /* 9:16 比例 */
-            background: linear-gradient(135deg, #6E5F42, #3A311D);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            display: block;
-        }
-
-        .hero-video-wrapper:hover {
-            transform: scale(1.02);
-        }
-
-        /* ======= 通用影片卡片與網格樣式 ======= */
+        /* 網格與影片卡片樣式 */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -150,7 +99,7 @@
         .video-cover-container {
             position: relative;
             width: 100%;
-            padding-top: 177.77%; /* 9:16 比例 */
+            padding-top: 177.77%; /* 9:16 直式比例 */
             background: linear-gradient(135deg, #5A4E36, #2A2315);
             display: flex;
             justify-content: center;
@@ -178,13 +127,11 @@
             font-size: 28px;
         }
 
-        .hero-video-wrapper:hover .play-button,
         .video-card:hover .play-button {
             background: var(--primary-color);
             transform: translate(-50%, -50%) scale(1.1);
         }
         
-        .hero-video-wrapper:hover .play-button::after,
         .video-card:hover .play-button::after {
             content: "▶";
             color: #fff;
@@ -207,6 +154,12 @@
         .video-info p {
             font-size: 0.9rem;
             color: #7A6E55;
+        }
+
+        /* 宣傳片卡片特別加強金色邊框線（凸顯主打） */
+        .featured-card {
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 4px 18px rgba(212, 175, 55, 0.15);
         }
 
         .hint-text {
@@ -265,23 +218,21 @@
 
     <div class="container">
         
-        <div class="hero-section">
-            <div class="hero-badge">FEATURED</div>
-            <h2 class="hero-title">「晨上辰AI映像」官方商務宣傳片</h2>
-            
-            <a href="https://youtube.com/shorts/EfYB-InkHTA" target="_blank" class="hero-video-wrapper">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊觀看官方宣傳片 (Shorts)</div>
-                </div>
-            </a>
-        </div>
-
-
-        <h2 class="section-title">AI 分類映像成品展示 (點擊播放)</h2>
+        <h2 class="section-title">AI 映像成品展示 (點擊播放)</h2>
         
         <div class="portfolio-grid">
             
+            <a href="https://youtube.com/shorts/EfYB-InkHTA" target="_blank" class="video-card featured-card">
+                <div class="video-cover-container">
+                    <div class="play-button"></div>
+                    <div class="hint-text">點擊觀看宣傳影片</div>
+                </div>
+                <div class="video-info">
+                    <h3>🌸 官方商務宣傳片</h3>
+                    <p>晨上辰AI映像核心理念與技術綜合展示短片。</p>
+                </div>
+            </a>
+
             <a href="https://youtube.com/shorts/ZY5lO4kwtKk" target="_blank" class="video-card">
                 <div class="video-cover-container">
                     <div class="play-button"></div>
