@@ -106,6 +106,7 @@
             align-items: center;
         }
 
+        /* 標準純粹的播放按鈕，從頭到尾都是三角形播放鍵 */
         .play-button {
             position: absolute;
             top: 50%;
@@ -123,8 +124,10 @@
         }
 
         .play-button::after {
-            content: "🌸";
-            font-size: 28px;
+            content: "▶";
+            color: var(--dark-gold);
+            font-size: 24px;
+            margin-left: 6px; /* 三角形置中微調 */
         }
 
         .video-card:hover .play-button {
@@ -133,10 +136,7 @@
         }
         
         .video-card:hover .play-button::after {
-            content: "▶";
-            color: #fff;
-            font-size: 24px;
-            margin-left: 6px;
+            color: #ffffff;
         }
 
         .video-info {
@@ -212,7 +212,7 @@
 
     <header>
         <h1>晨上辰AI映像</h1>
-        <div class="divider">✦ <span>🌸</span> ✦</div>
+        <div class="divider">✦ ✦</div>
         <p>運用前沿 AI 影像生成技術，為生命禮儀注入溫馨與緬懷。我們透過細膩的動態影像，凝結思念，為逝者留下最尊榮的告別，為家屬帶來內心的平靜與撫慰。</p>
     </header>
 
@@ -228,7 +228,7 @@
                     <div class="hint-text">點擊觀看宣傳影片</div>
                 </div>
                 <div class="video-info">
-                    <h3>🌸 官方商務宣傳片</h3>
+                    <h3>官方商務宣傳片</h3>
                     <p>晨上辰AI映像核心理念與技術綜合展示短片。</p>
                 </div>
             </a>
@@ -255,51 +255,4 @@
                 </div>
             </a>
 
-            <a href="https://youtube.com/shorts/Cgf5sSoo_Ek" target="_blank" class="video-card">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊前往 YouTube 觀看</div>
-                </div>
-                <div class="video-info">
-                    <h3>男性揮手</h3>
-                    <p>自然肅穆的揮手致意，重現親人記憶中最溫暖的揮別。</p>
-                </div>
-            </a>
-
-            <a href="https://youtube.com/shorts/Zh1s557TrTE" target="_blank" class="video-card">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊前往 YouTube 觀看</div>
-                </div>
-                <div class="video-info">
-                    <h3>男性合掌</h3>
-                    <p>內斂沉穩的合掌意象，傳遞慈悲與福報的圓滿。</p>
-                </div>
-            </a>
-
-            <a href="https://youtube.com/shorts/83fHgSwbqPs" target="_blank" class="video-card">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊前往 YouTube 觀看</div>
-                </div>
-                <div class="video-info">
-                    <h3>寵物生命禮儀相關</h3>
-                    <p>專為毛孩設計的溫馨影像，撫慰痛失愛寵的守護者。</p>
-                </div>
-            </a>
-
-        </div>
-
-        <div class="contact-section">
-            <h2>商務合作與技術洽詢</h2>
-            <p>「晨上辰AI映像」專為現代葬儀、生命禮儀公司提供客製化的 AI 影片生成服務。<br>不論是尊長生前影像重建、追思會溫馨短片，或是各類動態素材開發，我們皆能提供高效、高畫質的專業解決方案。</p>
-            <a href="mailto:chenxchenai@gmail.com" class="contact-btn">聯繫我們洽談合作</a>
-        </div>
-
-        <footer>
-            <p>&copy; 2026 晨上辰AI映像. All Rights Reserved.</p>
-        </footer>
-    </div>
-
-</body>
-</html>
+            <a href="
