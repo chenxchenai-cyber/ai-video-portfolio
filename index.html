@@ -86,8 +86,6 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(74, 62, 38, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            display: block;
         }
 
         .video-card:hover {
@@ -96,53 +94,29 @@
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
         }
 
-        .video-cover-container {
+        /* 讓 YouTube Shorts 鎖定在最完美的 9:16 直式比例框 */
+        .video-container {
             position: relative;
             width: 100%;
-            padding-top: 177.77%; /* 9:16 直式比例 */
-            background: linear-gradient(135deg, #5A4E36, #2A2315);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding-top: 177.77%; /* 9:16 黃金比例 */
+            background-color: #000000;
         }
 
-        /* 標準純粹的播放按鈕（圓形搭配三角形） */
-        .play-button {
+        /* 讓影片完全填滿格子，且能自由點擊播放 */
+        .video-container iframe {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: rgba(254, 253, 240, 0.9);
-            border: 3px solid var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .play-button::after {
-            content: "▶";
-            color: var(--dark-gold);
-            font-size: 24px;
-            margin-left: 6px;
-        }
-
-        .video-card:hover .play-button {
-            background: var(--primary-color);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        .video-card:hover .play-button::after {
-            color: #ffffff;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .video-info {
             padding: 20px;
             text-align: center;
             background: #FFFFFF;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
         }
 
         .video-info h3 {
@@ -156,84 +130,10 @@
             color: #7A6E55;
         }
 
+        /* 第一支主打宣傳片特別加強金色外框 */
         .featured-card {
             border: 2px solid var(--primary-color);
             box-shadow: 0 4px 18px rgba(212, 175, 55, 0.15);
-        }
-
-        .hint-text {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-            color: #FFEFA6;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        /* ======= 網頁內網燈箱播放器（Lightbox）樣式 ======= */
-        .video-lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .video-lightbox.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .lightbox-content {
-            position: relative;
-            width: 90%;
-            max-width: 380px; /* 針對 9:16 直式影片優化的最大寬度 */
-            padding-top: 160%; /* 留下一點空間給直式影片 */
-            if (width > 380px) height: 675px;
-        }
-
-        /* 確保高寬比鎖定在 9:16 內部容器 */
-        .lightbox-video-box {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            border: 2px solid var(--primary-color);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .lightbox-video-box iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .close-lightbox {
-            position: absolute;
-            top: -45px;
-            right: 0;
-            color: #FFFFFF;
-            font-size: 32px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            transition: color 0.2s;
-        }
-
-        .close-lightbox:hover {
-            color: var(--primary-color);
         }
 
         /* 聯絡區塊 */
@@ -282,14 +182,13 @@
 
     <div class="container">
         
-        <h2 class="section-title">AI 映像成品展示 (點擊內網觀看)</h2>
+        <h2 class="section-title">AI 映像成品展示 (網頁內直接播放)</h2>
         
         <div class="portfolio-grid">
             
-            <div class="video-card featured-card" onclick="playVideo('EfYB-InkHTA')">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊在網頁內觀看</div>
+            <div class="video-card featured-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/EfYB-InkHTA?rel=0" title="官方商務宣傳片" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <h3>官方商務宣傳片</h3>
@@ -297,10 +196,9 @@
                 </div>
             </div>
 
-            <div class="video-card" onclick="playVideo('ZY5lO4kwtKk')">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊在網頁內觀看</div>
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/ZY5lO4kwtKk?rel=0" title="女性揮手" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <h3>女性揮手</h3>
@@ -308,10 +206,9 @@
                 </div>
             </div>
 
-            <div class="video-card" onclick="playVideo('JYcZCq9n87U')">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊在網頁內觀看</div>
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/JYcZCq9n87U?rel=0" title="女性合掌" allow="accelercknowledge; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <h3>女性合掌</h3>
@@ -319,4 +216,48 @@
                 </div>
             </div>
 
-            <div class="video-card" onclick="playVideo('Cgf5sSoo_Ek')">
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Cgf5sSoo_Ek?rel=0" title="男性揮手" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>男性揮手</h3>
+                    <p>自然肅穆的揮手致意，重現親人記憶中最溫暖的揮別。</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Zh1s557TrTE?rel=0" title="男性合掌" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>男性合掌</h3>
+                    <p>內斂沉穩的合掌意象，傳遞慈悲與福報的圓滿。</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/83fHgSwbqPs?rel=0" title="寵物生命禮儀相關" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>寵物生命禮儀相關</h3>
+                    <p>專為毛孩設計的溫馨影像，撫慰痛失愛寵的守護者。</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contact-section">
+            <h2>商務合作與技術洽詢</h2>
+            <p>「晨上辰AI映像」專為現代葬儀、生命禮儀公司提供客製化的 AI 影片生成服務。<br>不論是尊長生前影像重建、追思會溫馨短片，或是各類動態素材開發，我們皆能提供高效、高畫質的專業解決方案。</p>
+            <a href="mailto:chenxchenai@gmail.com" class="contact-btn">聯繫我們洽談合作</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 晨上辰AI映像. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
