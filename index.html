@@ -86,7 +86,7 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(74, 62, 38, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
+            cursor: pointer;
             display: block;
         }
 
@@ -106,7 +106,7 @@
             align-items: center;
         }
 
-        /* 標準純粹的播放按鈕，從頭到尾都是三角形播放鍵 */
+        /* 標準純粹的播放按鈕（圓形搭配三角形） */
         .play-button {
             position: absolute;
             top: 50%;
@@ -127,7 +127,7 @@
             content: "▶";
             color: var(--dark-gold);
             font-size: 24px;
-            margin-left: 6px; /* 三角形置中微調 */
+            margin-left: 6px;
         }
 
         .video-card:hover .play-button {
@@ -156,7 +156,6 @@
             color: #7A6E55;
         }
 
-        /* 宣傳片卡片特別加強金色邊框線（凸顯主打） */
         .featured-card {
             border: 2px solid var(--primary-color);
             box-shadow: 0 4px 18px rgba(212, 175, 55, 0.15);
@@ -170,6 +169,71 @@
             color: #FFEFA6;
             font-size: 0.85rem;
             letter-spacing: 1px;
+        }
+
+        /* ======= 網頁內網燈箱播放器（Lightbox）樣式 ======= */
+        .video-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-content {
+            position: relative;
+            width: 90%;
+            max-width: 380px; /* 針對 9:16 直式影片優化的最大寬度 */
+            padding-top: 160%; /* 留下一點空間給直式影片 */
+            if (width > 380px) height: 675px;
+        }
+
+        /* 確保高寬比鎖定在 9:16 內部容器 */
+        .lightbox-video-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border: 2px solid var(--primary-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .lightbox-video-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            color: #FFFFFF;
+            font-size: 32px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.2s;
+        }
+
+        .close-lightbox:hover {
+            color: var(--primary-color);
         }
 
         /* 聯絡區塊 */
@@ -218,41 +282,41 @@
 
     <div class="container">
         
-        <h2 class="section-title">AI 映像成品展示 (點擊播放)</h2>
+        <h2 class="section-title">AI 映像成品展示 (點擊內網觀看)</h2>
         
         <div class="portfolio-grid">
             
-            <a href="https://youtube.com/shorts/EfYB-InkHTA" target="_blank" class="video-card featured-card">
+            <div class="video-card featured-card" onclick="playVideo('EfYB-InkHTA')">
                 <div class="video-cover-container">
                     <div class="play-button"></div>
-                    <div class="hint-text">點擊觀看宣傳影片</div>
+                    <div class="hint-text">點擊在網頁內觀看</div>
                 </div>
                 <div class="video-info">
                     <h3>官方商務宣傳片</h3>
                     <p>晨上辰AI映像核心理念與技術綜合展示短片。</p>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtube.com/shorts/ZY5lO4kwtKk" target="_blank" class="video-card">
+            <div class="video-card" onclick="playVideo('ZY5lO4kwtKk')">
                 <div class="video-cover-container">
                     <div class="play-button"></div>
-                    <div class="hint-text">點擊前往 YouTube 觀看</div>
+                    <div class="hint-text">點擊在網頁內觀看</div>
                 </div>
                 <div class="video-info">
                     <h3>女性揮手</h3>
                     <p>溫柔溫馨的動態呈現，展現告別時的輕聲致意。</p>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtube.com/shorts/JYcZCq9n87U" target="_blank" class="video-card">
+            <div class="video-card" onclick="playVideo('JYcZCq9n87U')">
                 <div class="video-cover-container">
                     <div class="play-button"></div>
-                    <div class="hint-text">點擊前往 YouTube 觀看</div>
+                    <div class="hint-text">點擊在網頁內觀看</div>
                 </div>
                 <div class="video-info">
                     <h3>女性合掌</h3>
                     <p>祥和虔誠的合掌姿態，帶有深厚的佛教祝福與祈願。</p>
                 </div>
-            </a>
+            </div>
 
-            <a href="
+            <div class="video-card" onclick="playVideo('Cgf5sSoo_Ek')">
