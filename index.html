@@ -83,8 +83,6 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(74, 62, 38, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            display: block;
         }
 
         .video-card:hover {
@@ -93,47 +91,21 @@
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
         }
 
-        .video-cover-container {
+        /* 針對 Shorts 優化的直式 9:16 播放器外殼 */
+        .video-container {
             position: relative;
             width: 100%;
-            padding-top: 177.77%; /* 9:16 比例 */
-            background: linear-gradient(135deg, #5A4E36, #2A2315);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding-top: 177.77%; 
+            background-color: #000;
         }
 
-        .play-button {
+        .video-container iframe {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: rgba(254, 253, 240, 0.9);
-            border: 3px solid var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .play-button::after {
-            content: "🌸";
-            font-size: 28px;
-        }
-
-        .video-card:hover .play-button {
-            background: var(--primary-color);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        .video-card:hover .play-button::after {
-            content: "▶";
-            color: #fff;
-            font-size: 24px;
-            margin-left: 6px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .video-info {
@@ -151,16 +123,6 @@
         .video-info p {
             font-size: 0.9rem;
             color: #7A6E55;
-        }
-
-        .hint-text {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-            color: #FFEFA6;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
         }
 
         .contact-section {
@@ -207,64 +169,59 @@
     </header>
 
     <div class="container">
-        <h2 class="section-title">AI 映像成品展示 (點擊播放)</h2>
+        <h2 class="section-title">AI 映像成品展示</h2>
         
         <div class="portfolio-grid">
             
-            <a href="https://youtube.com/shorts/ZY5lO4kwtKk" target="_blank" class="video-card">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊前往 YouTube 觀看 Shorts</div>
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/ZY5lO4kwtKk" title="女性揮手" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <h3>女性揮手</h3>
                     <p>溫柔溫馨的動態呈現，展現告別時的輕聲致意。</p>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtube.com/shorts/JYcZCq9n87U" target="_blank" class="video-card">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊前往 YouTube 觀看 Shorts</div>
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/JYcZCq9n87U" title="女性合掌" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <h3>女性合掌</h3>
                     <p>祥和虔誠的合掌姿態，帶有深厚的佛教祝福與祈願。</p>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtube.com/shorts/Cgf5sSoo_Ek" target="_blank" class="video-card">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊前往 YouTube 觀看 Shorts</div>
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Cgf5sSoo_Ek" title="男性揮手" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <h3>男性揮手</h3>
                     <p>自然肅穆的揮手致意，重現親人記憶中最溫暖的揮別。</p>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtube.com/shorts/Zh1s557TrTE" target="_blank" class="video-card">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊前往 YouTube 觀看 Shorts</div>
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Zh1s557TrTE" title="男性合掌" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <h3>男性合掌</h3>
                     <p>內斂沉穩的合掌意象，傳遞慈悲與福報的圓滿。</p>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://youtube.com/shorts/83fHgSwbqPs" target="_blank" class="video-card">
-                <div class="video-cover-container">
-                    <div class="play-button"></div>
-                    <div class="hint-text">點擊前往 YouTube 觀看 Shorts</div>
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/83fHgSwbqPs" title="寵物相關" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <h3>寵物生命禮儀相關</h3>
                     <p>專為毛孩設計的溫馨影像，撫慰痛失愛寵的守護者。</p>
                 </div>
-            </a>
+            </div>
 
         </div>
 
